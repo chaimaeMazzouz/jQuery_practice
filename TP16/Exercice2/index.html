@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 2 | TP16</title>
+  </head>
+  <body>
+    <div id="listes">
+      <ul id="ul1">
+        <li class="vert">
+          Elément de liste 1
+          <ul id="ul2">
+            <li class="vert">Enfant 2</li>
+            <li class="bleu vert jaune rouge">Enfant 3</li>
+          </ul>
+        </li>
+        <li class="bleu rouge">Elément de liste 4</li>
+        <li class="bleu">Elément de liste 5</li>
+        <li class="bleu jaune italic">Elément de liste 6</li>
+      </ul>
+    </div>
+
+    <div>
+      <button id="btn1">Cachez les lignes 2 et 3</button><br />
+      <button id="btn2">Colorez en bleu les lignes 3,4 ,5 et 6</button><br />
+      <button id="btn3">Colorez en vert les lignes 1, 2 et 3</button><br />
+      <button id="btn4">Colorez en jaune les lignes 3 et 6</button><br />
+      <button id="btn5">Colorez en rouge les lignes 3 et 4</button><br />
+      <button id="btn6">Mettez en écriture italique la ligne 6</button><br />
+    </div>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn1").click(function () {
+          $("#ul2").hide();
+        });
+        $("#btn2").click(function () {
+          $(".bleu").css("color", "blue");
+        });
+        $("#btn3").click(function () {
+          $(".vert").css("color", "green");
+        });
+        $("#btn4").click(function () {
+          $(".jaune").css("color", "yellow");
+        });
+        $("#btn5").click(function () {
+          $(".rouge").css("color", "red");
+        });
+        $("#btn6").click(function () {
+          $(".italic").css("font-style", "italic");
+        });
+      });
+    </script>
+  </body>
+</html>

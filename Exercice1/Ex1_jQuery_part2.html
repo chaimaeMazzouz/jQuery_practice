@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("ul").hide();
+        $("ul").show();
+        $(".rouge").css("color", "red");
+        $(".bleu").css("color", "blue");
+        $("*").css("font-size", "25px");
+        $(".pair").css("color", "green");
+        $(".impair").css("color", "yellow");
+      });
+    </script>
+  </head>
+  <body>
+    <ul class="rouge">
+      <li class="impair">Premiere élement de la liste à puces</li>
+      <li class="pair">deuxième élement de la liste à puces</li>
+      <li class="impair">troisième élement de la liste à puces</li>
+    </ul>
+    <div>
+      <ul class="bleu">
+        <li class="impair">Premiere élement de la liste à puces</li>
+        <li class="pair">deuxième élement de la liste à puces</li>
+        <li class="impair">troisième élement de la liste à puces</li>
+      </ul>
+    </div>
+    <ol class="rouge">
+      <li>Premiere élement de la liste numérotée</li>
+      <li>deuxième élement de la liste numérotée</li>
+      <li>troisième élement de la liste numérotée</li>
+    </ol>
+    <button class="h">Hide</button>
+    <button class="sh">Show</button>
+  </body>
+</html>

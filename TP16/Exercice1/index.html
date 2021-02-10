@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <span>Nom d'utilisateur</span><br />
+    <input type="text" id="nom" /><br />
+    <span>Mot de passe </span><br />
+    <input type="password" id="password" /><br />
+    sexe Homme <input type="radio" /> Femme <input type="radio" /> commentaires
+    <textarea></textarea><br />
+    <img src="image.png" /><br />
+    <button type="submit">Envoyer</button>
+    <button>Annuler</button>
+    <br />
+    <hr />
+
+    <button id="btn1">Colorez en jaune tous les champs de saisie</button><br />
+    <button id="btn2">Colorez le champ password en bleu</button><br />
+    <button id="btn3">Redimensionnez le champ de type image</button><br />
+    <button id="btn4">
+      Placez le focus au premier champ de saisie et coloration en vert</button
+    ><br />
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#btn1").click(function () {
+          $("input,textarea").css("background-color", "yellow");
+        });
+        $("#btn2").click(function () {
+          $("#password").css("background-color", "blue");
+        });
+        $("#btn3").click(function () {
+          $("img").css("height", "250px");
+          $("img").css("width", "350px");
+        });
+        $("#btn4").click(function () {
+          $("#nom").focus();
+          $("#nom").css("background-color", "green");
+        });
+      });
+    </script>
+  </body>
+</html>

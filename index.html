@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Découverte de jQuery</title>
+
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("button").click(function () {
+          $("p").hide();
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h2>ceci est une rubrique</h2>
+    <p>ceci est un paragraphe</p>
+    <p>ceci est un autre paragraphe</p>
+    <button>Cliquez pour masquer les paragraphes</button>
+  </body>
+</html>
