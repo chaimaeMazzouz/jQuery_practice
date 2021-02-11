@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <p id="1">Evenemet 1: changer la couleur du fond de chaque evenemet</p>
+    <p id="2">Evenemet 2: cacher ou afficher evenement 4 a E/S de souris</p>
+    <p id="3">
+      Evenemet 3: cacher et afficher evenement 4 apres clic par souris
+    </p>
+    <p id="4">
+      Evenemet 4: apres double clic changement de couleur de police pour tous
+      les evenement
+    </p>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+      $(document).ready(function () {
+        $("#1").click(function () {
+          $("#1,#2,#3,#4").css("background-color", "yellow");
+        });
+        $("#2").mouseover(function () {
+          $("#4").hide();
+        });
+        $("#2").mouseleave(function () {
+          $("#4").show();
+        });
+        $("#3").click(function () {
+          $("#4").toggle();
+        });
+        $("#4").dblclick(function () {
+          $("#1,#2,#3,#4").css("color", "red");
+        });
+      });
+    </script>
+  </body>
+</html>
