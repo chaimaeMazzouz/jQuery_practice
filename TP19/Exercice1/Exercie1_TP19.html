@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Entrez un chiffre:</h1>
+    <input type="text" id="nbre" />
+    <button>Converte</button>
+    <script src="jquery-3.3.1.min.js"></script>
+    <script>
+      var entrerChiffre = $("#nbre").val;
+      $("button").click(function () {
+        //Si un nombre a bien été entré
+        if (entrerChiffre >= 0) {
+          document.write("Votre nombre : ", entrerChiffre, "<br />");
+
+          // Création des Array contenant les nombres et chiffres en lettres
+          var chiffresArray = [
+            "",
+            "un",
+            "deux",
+            "trois",
+            "quatre",
+            "cinq",
+            "six",
+            "sept",
+            "huit",
+            "neuf",
+          ];
+          var dixArray = [
+            "dix",
+            "onze",
+            "douze",
+            "treize",
+            "quatorze",
+            "quinze",
+            "seize",
+            "dix-sept",
+            "dix-huit",
+            "dix-neuf",
+          ];
+          var dizaineArray = [
+            "",
+            "",
+            "vingt",
+            "trente",
+            "quarante",
+            "cinquante",
+            "soixante",
+            "soixante",
+            "quatre-vingts",
+            "quatre-vingts",
+          ];
+
+          var chiffreLength = entrerChiffre.length;
+
+          // Si un nombre à 3 chiffres a été entré :
+          if (chiffreLength == 3) {
+            var centaineDecimal = entrerChiffre / 100;
+            var premierChiffre = parseInt(centaineDecimal);
+
+            // Condition pour mettre "cent" au pluriel et ne pas afficher "un cent" :
+            if (premierChiffre > 1) {
+              var pluriel = "s";
+              document.write(chiffresArray[premierChiffre], " cents ");
+            } else if (premierChiffre == 0) {
+              document.write("");
+            } else {
+              var pluriel = "";
+              document.write("cent ");
+            }
+
+            // récupération du chiffre des dizaines
+            var dizaine = entrerChiffre - premierChiffre * 100;
+            var dizaineDecimal = dizaine / 10;
+            var deuxiemeChiffre = parseInt(dizaineDecimal);
+
+            // Récupération du chiffre des unités
+            var unite = dizaine - deuxiemeChiffre * 10;
+
+            // Conditions pour dizaines spéciales
+            switch (deuxiemeChiffre) {
+              case 1:
+                document.write(dixArray[unite]);
+                break;
+              case 7:
+                document.write(
+                  dizaineArray[deuxiemeChiffre],
+                  "-",
+                  dixArray[unite]
+                );
+                break;
+              case 9:
+                document.write(
+                  dizaineArray[deuxiemeChiffre],
+                  "-",
+                  dixArray[unite]
+                );
+                break;
+              default:
+                //ajout de "et" quand le 3eme chiffre est 1 :
+                if (
+                  deuxiemeChiffre != 0 &&
+                  unite == 1 &&
+                  deuxiemeChiffre != 8
+                ) {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    "-et-",
+                    chiffresArray[unite]
+                  );
+                } else if (deuxiemeChiffre == 0) {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    " ",
+                    chiffresArray[unite]
+                  );
+                } else if (unite == 0) {
+                  document.write(dizaineArray[deuxiemeChiffre]);
+                } else {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    "-",
+                    chiffresArray[unite]
+                  );
+                }
+            }
+          }
+
+          // Si nombre à deux chiffres
+          else if (chiffreLength == 2) {
+            var dizaineDecimal = entrerChiffre / 10;
+            var deuxiemeChiffre = parseInt(dizaineDecimal);
+            var unite = entrerChiffre - deuxiemeChiffre * 10;
+
+            switch (deuxiemeChiffre) {
+              case 1:
+                document.write(dixArray[unite]);
+                break;
+              case 7:
+                if (unite == 1) {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    "-et-",
+                    dixArray[unite]
+                  );
+                } else {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    "-",
+                    dixArray[unite]
+                  );
+                }
+                break;
+              case 9:
+                document.write(
+                  dizaineArray[deuxiemeChiffre],
+                  "-",
+                  dixArray[unite]
+                );
+                break;
+              default:
+                if (
+                  deuxiemeChiffre != 0 &&
+                  unite == 1 &&
+                  deuxiemeChiffre != 8
+                ) {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    "-et-",
+                    chiffresArray[unite]
+                  );
+                } else if (unite == 0) {
+                  document.write(dizaineArray[deuxiemeChiffre]);
+                } else {
+                  document.write(
+                    dizaineArray[deuxiemeChiffre],
+                    "-",
+                    chiffresArray[unite]
+                  );
+                }
+            }
+          } else if (chiffreLength == 1) {
+            var unite = parseInt(entrerChiffre);
+            if (entrerChiffre == 0) {
+              document.write("zéro");
+            } else {
+              document.write(chiffresArray[unite]);
+            }
+          } else if (chiffreLength > 3) {
+            document.write("Le chiffre est supérieur à 999.");
+          } else {
+            document.write("Bizarre Bizarre...");
+          }
+        } else {
+          document.write("Je crois que vous n'avez pas entré un nombre...");
+        }
+      });
+    </script>
+  </body>
+</html>

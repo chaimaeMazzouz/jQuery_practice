@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exercice 2</title>
+    <style>
+      tr:nth-child(odd) {
+        background-color: gray;
+      }
+      td {
+        width: 300px;
+        text-align: center;
+      }
+      div {
+        padding: 10px;
+        border: 2px solid black;
+        width:800px;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button id="b1">Faire apparaitre les lignes paires</button>
+      <button id="b2">Faire disparaitre les lignes paires</button>
+      <table border="1px">
+        <tr>
+          <td>1</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td></td>
+          <td></td>
+        </tr>
+      </table>
+    </form>
+  </div>
+  <script src="jquery-3.3.1.min.js"></script>
+  <script>
+    $(function () {
+      $("#b1").click(function (e) {
+        e.preventDefault();
+        $("tr:odd").show();
+      });
+      $("#b2").click(function (e) {
+        e.preventDefault();
+        $("tr:odd").hide();
+      });
+    });
+  </script>
+</html>
