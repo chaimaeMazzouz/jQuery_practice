@@ -34,6 +34,7 @@
       <center>
         <ul id="ul1">
           <li>Element 1</li>
+          <li>Element 1</li>
         </ul>
       </center>
 
@@ -47,8 +48,9 @@
         var element = $("#el").val();
         $("#ul1").append("<li>" + element + "</li>");
       });
-      $("li").click(function () {
+      $("li").on("click", function () {
         $(this).remove();
+        //alert(this);
       });
     </script>
   </body>
