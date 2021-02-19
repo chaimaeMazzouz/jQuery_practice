@@ -26,6 +26,10 @@
         margin: 5px;
         padding: 10px;
       }
+      input {
+        width: 55px;
+        margin-left: 40px;
+      }
     </style>
   </head>
   <body>
@@ -33,22 +37,21 @@
       <h1>Construire une liste d'élement</h1>
       <center>
         <ul id="ul1">
-          <li>Element 1</li>
-          <li>Element 1</li>
+          <li class="element">Element 1</li>
         </ul>
-      </center>
 
-      <input type="text" id="el" placeholder="Element" /><button>
-        Ajouter
-      </button>
+        <input type="text" id="el" placeholder="Element" /><button>
+          Ajouter
+        </button>
+      </center>
     </div>
     <script src="jquery-3.3.1.min.js"></script>
     <script>
       $("button").click(function () {
         var element = $("#el").val();
-        $("#ul1").append("<li>" + element + "</li>");
+        $("#ul1").append("<li class ='element'>" + element + "</li>");
       });
-      $("li").on("click", function () {
+      $("#ul1").on("click", ".element", function () {
         $(this).remove();
       });
     </script>
